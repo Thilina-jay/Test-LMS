@@ -65,7 +65,7 @@
 			</ul>
 		</div>
         <div class="col-md-8" id="main_content">
-			<center><h3>User Registration Form</h3></center>
+			<center><h3>Staff Registration Form</h3></center>
 			<form action="register.php" method="post">
                 
 				<div class="form-group">

@@ -96,7 +96,7 @@ mysqli_close($connection);
 		    </ul>
 		</div>
 	</nav><br>
-		<center><h4> Profile Detail</h4><br></center>
+		<center><h4>Edit Profile Detail</h4><br></center>
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
@@ -104,6 +104,10 @@ mysqli_close($connection);
     <div class="form-group">
         <label for="name">User ID:</label>
         <input type="text" name="user_id" class="form-control" value="<?php echo $user_id;?>" readonly>
+    </div>
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" name="username" value="<?php echo $username;?>" class="form-control"readonly>
     </div>
     <div class="form-group">
         <label for="email">Email:</label>
@@ -117,10 +121,7 @@ mysqli_close($connection);
         <label for="email">Last name:</label>
         <input type="text" name="last_name" value="<?php echo $last_name;?>" class="form-control">
     </div>
-    <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" name="username" value="<?php echo $username;?>" class="form-control">
-    </div>
+   
     <!-- Add a hidden input field for user_id -->
     <input type="hidden" name="update_user_id" value="<?php echo $user_id;?>">
     <button type="submit" name="update" class="btn btn-primary">Update</button>
