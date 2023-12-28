@@ -11,8 +11,8 @@
   	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
       <style type ="text/css">
     .navbar-brand img {
-        width: 70px; 
-        height: auto; 
+        width: 150px; 
+        height: 50px; 
     }
     #main_content{
 		padding: 50px;
@@ -38,15 +38,16 @@
 			</div>
 	
 		    <ul class="nav navbar-nav navbar-right">
-		      <li class="nav-item">
-		        <a class="nav-link" href="admin/index.php">Admin Login</a>
+            <li class="nav-item">
+		        <a class="nav-link" href="signup.php">Staff Register</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="signup.php">User Login</a>
+		        <a class="nav-link" href="index.php">Staff Login</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="index.php">Register</a>
+		        <a class="nav-link" href="index.php">User Login</a>
 		      </li>
+		    
 		    </ul>
 		</div>
 	</nav><br>
@@ -66,26 +67,34 @@
         <div class="col-md-8" id="main_content">
 			<center><h3>User Registration Form</h3></center>
 			<form action="register.php" method="post">
+                
 				<div class="form-group">
-					<label for="name">Full Name:</label>
-					<input type="text" name="name" class="form-control" required>
+					<label for="name">User Id:</label>
+					<input type="text" name="user_id" class="form-control" required pattern="^U\d{3}$">
+                    <small id="useridHelp" class="form-text text-muted">User ID should be in the 'U<BOOK_ID>' format (e.g., U001).</small>
 				</div>
-				<div class="form-group">
-					<label for="email">Email ID:</label>
-					<input type="text" name="email" class="form-control" required>
+                <div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" name="email" class="form-control" required>
 				</div>
+                <div class="form-group">
+					<label for="name">First name:</label>
+					<input type="text" name="first_name" class="form-control" required>
+				</div>
+                <div class="form-group">
+					<label for="name">Last name:</label>
+					<input type="text" name="last_name" class="form-control" required>
+				</div>
+                <div class="form-group">
+					<label for="name">User name</label>
+					<input type="text" name="username" class="form-control" required >
+				</div>
+				
 				<div class="form-group">
 					<label for="password">Password:</label>
-					<input type="password" name="password" class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label for="mobile">Mobile:</label>
-					<input type="text" name="mobile" class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label for="address">Address:</label>
-					<textarea name="address" class="form-control" required></textarea> 
-				</div>
+					<input type="password" name="password" class="form-control" required minlength="8">
+		<br> </br>
+			
 				<button type="submit" class="btn btn-primary">Register</button>	
 			</form>
 		</div>

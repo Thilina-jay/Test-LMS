@@ -11,8 +11,8 @@
   	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
       <style type ="text/css">
     .navbar-brand img {
-        width: 40px; 
-        height: auto; 
+        width: 150px; 
+        height: 50px; 
     }
     #main_content{
 		padding: 50px;
@@ -30,7 +30,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
+<div class="container-fluid">
 			<div class="navbar-header">
             <a class="navbar-brand" href="signup.php">
                 <img src="book.png" alt="BookByte Logo">
@@ -38,15 +38,16 @@
 			</div>
 	
 		    <ul class="nav navbar-nav navbar-right">
-		      <li class="nav-item">
-		        <a class="nav-link" href="admin/index.php">Admin Login</a>
+            <li class="nav-item">
+		        <a class="nav-link" href="signup.php">Staff Register</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="signup.php">User Login</a>
+		        <a class="nav-link" href="index.php">Staff Login</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link" href="signup.php">Register</a>
+		        <a class="nav-link" href="index.php">User Login</a>
 		      </li>
+		    
 		    </ul>
 		</div>
 	</nav><br>
@@ -64,20 +65,54 @@
 			</ul>
 		</div>
         <div class="col-md-8" id="main_content">
-			<center><h3>User Registration Form</h3></center>
-			<form action="register.php" method="post">
+			<center><h3>Admin Login</h3></center>
+			<form action="" method="post">
 				<div class="form-group">
-					<label for="email">Email ID:</label>
-					<input type="text" name="email" class="form-control" required>
+					<label for="email">User Name:</label>
+					<input type="text" name="username" class="form-control" required>
 				</div>
 				<div class="form-group">
 					<label for="password">Password:</label>
 					<input type="password" name="password" class="form-control" required>
 				</div>
 				
-				<button type="submit" class="btn btn-primary">Register</button>	
+				<button type="submit" name="login" class="btn btn-primary">Login</button> |
+				<a href="signup.php"> Not registered yet ?</a>
 			</form>
-		</div>
+            <?php
+session_start();
 
+if (isset($_POST['login'])) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "demo";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $_SESSION['username'] = $username;
+        header("Location: user_dashboard.php");
+        exit();
+    } else {
+        $error_message = "Invalid username or password";
+        echo "<script>alert('$error_message');</script>"; // Display an alert
+    }
+
+    $conn->close();
+}
+?>
+    </div>
+</div>
 </body>
 </html>
