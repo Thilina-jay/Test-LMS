@@ -11,8 +11,8 @@
   	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
       <style type ="text/css">
     .navbar-brand img {
-        width: 150px; 
-        height: 50px; 
+        width: auto; 
+        height: 30px; 
     }
     #main_content{
 		padding: 50px;

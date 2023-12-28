@@ -45,8 +45,8 @@ mysqli_close($connection);
   	<script type="text/javascript" src="bootstrap-4.4.1/js/bootstrap.min.js"></script>
       <style type="text/css">
     .navbar-brand img {
-        width: 150px;
-        height: 50px;
+        width: auto; 
+        height: 30px; 
     }
 
     .navbar-text {
@@ -86,6 +86,8 @@ mysqli_close($connection);
 	        		<a class="dropdown-item" href="edit_profile.php">Edit Profile</a>
 	        		<div class="dropdown-divider"></div>
 	        		<a class="dropdown-item" href="change_password.php">Change Password</a>
+                    <div class="dropdown-divider"></div>
+	        		<a class="dropdown-item" href="alldata.php">All data</a>
 	        	</div>
 		      </li>
 		      <li class="nav-item">
